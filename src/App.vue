@@ -2,7 +2,7 @@
   <div id="app">
     <input placeholder="autoComplete" @change="handleChange" v-model="value">
     <div :key="name" v-for="name in matchName">
-      <p @click="handleClick($event.target)">{{name}}</p>
+      <p @click="handleClick(name)">{{name}}</p>
     </div>
   </div>
 </template>
@@ -32,8 +32,8 @@ export default {
       let matchName = match.map(user => user.name);
       this.matchName = matchName;
     },
-    handleClick(e) {
-      this.value = e.innerText;
+    handleClick(name) {
+      this.value = name;
       this.matchName = [];
     }
   }
